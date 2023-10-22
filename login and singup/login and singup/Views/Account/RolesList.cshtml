@@ -1,0 +1,30 @@
+﻿@using Microsoft.AspNetCore.Identity
+@model IEnumerable<IdentityRole>
+@{
+    ViewData["Title"] = "RolesList";
+}
+
+<h1>Roles List</h1>
+
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+<div class="card-group">
+@foreach (var item in Model)
+{
+    <div class="card text-white bg-dark mb-3 me-3" style="max-width: 18rem;">
+        <div class="card-header">Role Number : @item.Id</div>
+        <div class="card-body">
+            <h5 class="card-title mb-5">Role Name : @item.Name</h5>
+            <a asp-action="EditRole"
+               asp-controller="Account"
+               asp-route-id="@item.Id"
+                   class="btn btn-warning">Edit</a>
+        </div>
+    </div>
+}
+</div>

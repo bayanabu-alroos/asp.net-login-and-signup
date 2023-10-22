@@ -1,0 +1,37 @@
+﻿@model List<UsersInRoleViewModel>
+@{
+    ViewData["Title"] = "EditRole";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+<h1></h1>
+
+<section>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 ">
+                        <h3 class="mb-5">Edit User In Role</h3>
+                        <form asp-action="EditUserInRole" method="post">
+                            <div asp-validation-summary="All" class=" alert-danger"></div>
+                            @for (int i = 0; i < Model.Count; i++)
+                            {
+                                <input type="hidden" asp-for="@Model[i].UserId">
+                                <input type="hidden" asp-for="@Model[i].UserName">
+                                <div class="form-outline mb-2 form-check">
+                                    <input class="form-check-input" asp-for="@Model[i].IsSelected">
+                                    <label class="form-check-label" asp-for="@Model[i].IsSelected">
+                                        @Model[i].UserName
+                                    </label>
+                                </div>
+                            }
+                            <button class="btn btn-success btn-lg " type="submit">Update User</button>
+                            <a asp-action="RolesList" class="btn btn-warning btn-lg">Cancel</a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

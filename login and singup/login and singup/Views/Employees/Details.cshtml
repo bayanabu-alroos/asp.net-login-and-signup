@@ -1,0 +1,62 @@
+﻿@using login_and_singup.Models.Enum;
+@model Employee
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+
+
+
+<section>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 ">
+                        <h3 class="mb-5">
+                            Create Employee
+                        </h3>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" asp-for="EmployeeName"></label>  :  
+                            @Model.EmployeeName
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" asp-for="Email"></label>  :
+                            @Model.Email
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" asp-for="City"></label>  :
+                            @Model.City
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" asp-for="Phone"></label>  :
+                            @Model.Phone
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" asp-for="Postion"></label>  :
+                            @Model.Postion
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" asp-for="Salary"></label>  :
+                            @Model.Salary
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" asp-for="Gender"></label>  :
+                            @Model.Gender
+                        </div>
+
+                        <div class="form-outline mb-2">
+                            <label class="form-label">Department Name</label>  :
+                            @Model.Department.DepartmentName
+                        </div>
+                        <div class="form-outline mb-2">
+                            <label class="form-label" asp-for="HiringData"></label>  :
+                            @Model.HiringData
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

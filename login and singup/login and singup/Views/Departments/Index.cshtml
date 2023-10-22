@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Department>
+@{
+    ViewData["Title"] = "Index";
+}
+@if (TempData["SuccessMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["SuccessMessage"]
+    </div>
+}
+
+
+<h1>List of Department </h1>
+<a asp-action="Create" asp-controller="Departments" class="btn btn-outline-success mb-3">Create New Department</a>
+<table class="table table-success table-striped table-hover">
+    <thead>
+        <tr>
+            <th scope="col">#</th>
+            <th scope="col">@Html.DisplayNameFor(m=>m.DepartmentName) </th>
+            <th scope="col">Action</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var department in Model)
+        {
+            <tr>
+                <th scope="row">@department.DepartmentId</th>
+                <td>@department.DepartmentName</td>
+
+                <td>
+
+                    <a asp-action="Delete" asp-controller="Departments"
+                       asp-route-id="@department.DepartmentId" class="btn btn-outline-danger">Delete</a>
+                    <a asp-action="Edit" asp-controller="Departments"
+                       asp-route-id="@department.DepartmentId" class="btn btn-outline-warning">Edit</a>
+                </td>
+            </tr>
+        }
+
+
+    </tbody>
+</table>

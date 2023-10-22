@@ -1,0 +1,32 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+
+<section>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 ">
+                        <h1 class="mb-5 alert alert-dark">
+
+                            Are You Sure To Delete <span class="text-danger">
+                                @Model.EmployeeName
+                            </span> ?
+                        </h1>
+                        <form asp-action="ConfirmDelete" method="post">
+                            @Html.HiddenFor(m=>m.EmployeeId)
+                            <button class="btn btn-danger">Sure, Delete</button>
+                            <button class="btn btn-warning" asp-action="Index">Cancel</button>
+
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

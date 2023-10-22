@@ -1,0 +1,65 @@
+﻿@model EditRoleViewModel
+@{
+    ViewData["Title"] = "EditRole";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+<section >
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 ">
+                        <h3 class="mb-5">Edit Role </h3>
+                        <form asp-action="EditRole" method="post">
+                            <div asp-validation-summary="All" class=" alert-danger"></div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " disabled asp-for="Id" />
+                                <label class="form-label" asp-for="Id"></label>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " asp-for="RoleName" />
+                                <label class="form-label" asp-for="RoleName"></label>
+                            </div>
+
+                            <button class="btn btn-success btn-lg btn-block" type="submit">Update Role</button>
+                       
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<section>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-header">
+                        <h4>Users in this Role</h4>
+                    </div>
+                    <div class="card-body p-3 ">
+                        @if (Model.Users.Any())
+                        {
+                            foreach (var user in Model.Users)
+                            {
+                                <h4 class="card-title">@user</h4>
+                            }
+                        }
+                        else
+                        {
+                            <h4 class="card-title text-danger">No user in this role .......</h4>
+                        }
+                    </div>
+                    <div class="card-footer">
+                        <a asp-action="EditUserInRole" asp-route-id="@Model.Id" class="btn btn-primary">Add or Remove User From This Role </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

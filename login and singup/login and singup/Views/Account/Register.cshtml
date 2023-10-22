@@ -1,0 +1,74 @@
+﻿@using login_and_singup.Models.Enum;
+@model RegisterViewModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+
+}
+
+<section class="vh-100">
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 ">
+                        <h3 class="mb-5">Register </h3>
+                        <form asp-action="Register" method="post">
+                            <div asp-validation-summary="All" class=" alert-danger"></div>
+                            <div class="form-outline mb-3">
+                                <input type="email" id="typeEmailX" class="form-control form-control-lg input-text" asp-for="EmailAddress" />
+                                <label class="form-label" asp-for="EmailAddress">Email</label>
+                            </div>
+                            <div >
+                                <span class="text-danger" asp-validation-for="EmailAddress"></span>
+                            </div>
+                            <div class="form-outline mb-3">
+                                <input type="password" id="typePasswordX" class="form-control form-control-lg input-text" asp-for="Password" />
+                                <label class="form-label" asp-for="Password">Password</label>
+                            </div>
+                            <div >
+                                <span class="text-danger" asp-validation-for="Password"></span>
+                            </div>
+                            <div class="form-outline mb-3">
+                                <input type="password" id="typePasswordX" class="form-control form-control-lg input-text " asp-for="ConfirmPassword" />
+                                <label class="form-label" asp-for="ConfirmPassword">Confirm Password</label>
+                            </div>
+                            <div >
+                                <span class="text-danger" asp-validation-for="ConfirmPassword"></span>
+                            </div>
+                            <div class="form-outline mb-3">
+                                <input type="text" id="typePasswordX" class="form-control form-control-lg input-text " asp-for="Phone" />
+                                <label class="form-label" asp-for="Phone"></label>
+                            </div>
+                            <div >
+                                <span class="text-danger" asp-validation-for="Phone"></span>
+                            </div>
+                            <div class="form-outline mb-3">
+                                <input type="text" id="typePasswordX" class="form-control form-control-lg input-text " asp-for="City" />
+                                <label class="form-label" asp-for="City"></label>
+                            </div>
+                            <div>
+                                <span class="text-danger" asp-validation-for="City"></span>
+                            </div>
+                            <div class="form-outline mb-3">
+                                @Html.DropDownList("Gender",Html.GetEnumSelectList<Gender>(),"--Choose Gender --",new{@class="form-control form-control-lg input-text"})
+                                <label class="form-label" asp-for="Gender"></label>
+                            </div>
+                            <div>
+                                <span class="text-danger" asp-validation-for="Gender"></span>
+                            </div>
+                            <button class="btn btn-success btn-lg btn-block" type="submit">Register</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

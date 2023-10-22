@@ -1,0 +1,68 @@
+﻿@using login_and_singup.Models.Enum;
+@model EmployeeViewModel
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/Layout2.cshtml";
+}
+
+
+
+
+<section>
+    <div class="container py-5 h-100">
+        <div class="row d-flex justify-content-center align-items-center h-100">
+            <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+                <div class="card shadow-2-strong" style="border-radius: 1rem;">
+                    <div class="card-body p-5 ">
+                        <h3 class="mb-5">
+                            Create Employee
+                        </h3>
+                        <form asp-action="Create" method="post">
+                            <div asp-validation-summary="All" class=" alert-danger"></div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " asp-for="EmployeeName" />
+                                <label class="form-label" asp-for="EmployeeName"></label>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " asp-for="Email" />
+                                <label class="form-label" asp-for="Email"></label>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " asp-for="City" />
+                                <label class="form-label" asp-for="City"></label>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " asp-for="Phone" />
+                                <label class="form-label" asp-for="Phone"></label>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " asp-for="HiringData" />
+                                <label class="form-label" asp-for="HiringData"></label>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " asp-for="Salary" />
+                                <label class="form-label" asp-for="Salary"></label>
+                            </div>
+                            <div class="form-outline mb-2">
+                                <input type="text" class="form-control form-control-lg input-text " asp-for="Postion" />
+                                <label class="form-label" asp-for="Postion"></label>
+                            </div>
+                            <div class="form-outline mb-3">
+                                @Html.DropDownList("Gender",Html.GetEnumSelectList<Gender>(),"--Choose Gender --",new{@class="form-control form-control-lg input-text"})
+                                <label class="form-label" ></label>
+                            </div>
+                            <div class="form-outline mb-3">
+                                @Html.DropDownList("DepartmentId", (SelectList)ViewBag.DepartmentsName, "Choose an Departments", new { @class = "form-control form-control-lg input-text" })
+                                <label class="form-label"></label>
+                            </div>
+
+
+                            <button class="btn btn-success btn-lg btn-block" type="submit">Create Department</button>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
